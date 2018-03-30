@@ -34,12 +34,14 @@ public class RetrieveMessagesFromGenericQueue {
         	FileWriter fw=null;
         	BufferedWriter bw = null;
 			try {
+				//writing in file
 				fw = new FileWriter(file,true);
 				bw = new BufferedWriter(fw);
 	        	bw.write(message.toString());
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			//closing the opened resources
 			finally {
 				try {
 					if(bw!=null) {

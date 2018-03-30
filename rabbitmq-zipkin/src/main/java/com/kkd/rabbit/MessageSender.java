@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class MessageSender {
 	
-	//autowired a template of rabbitmq to send a messgae
+	//autowired a template of rabbitmq to send a message
 	@Autowired
 	private AmqpTemplate amqpTemplate;
 		
 	public void produceMsg(String msg){
-		//using the tempate definfig the needed parameters- exachange name,key and message
+		//using the template defining the needed parameters- exchange name,key and message
 		amqpTemplate.convertAndSend(RabbitApplication.EXCHANGE_NAME, RabbitApplication.ROUTING_KEY, msg);
 		System.out.println("Send msg = " + msg);
 	}
